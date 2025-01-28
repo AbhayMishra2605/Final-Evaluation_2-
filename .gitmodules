@@ -1,6 +1,6 @@
 [submodule "Client/minilink--"]
-	path = Client/minilink--
-	url = https://github.com/AbhayMishra2605/Final-Evaluation_2-.git
+path = Client/minilink--
+url = git@github.com:AbhayMishra2605/Link-Management-Site.git
 [submodule "Server"]
-	path = Server
-	url = https://github.com/AbhayMishra2605/Final-Evaluation_2-.git
+path = Server
+url = git@github.com:AbhayMishra2605/Mini-Link-Management-Platform-Backend.git
