@@ -257,8 +257,8 @@ function LinkComponent({search}) {
                       </span>
                     </div>
                     <div className="tabledata">
-                      <span className="remarks">{link.comments.length > 18
-                          ? link.comments.slice(0, 18)
+                      <span className="remarks">{link.comments.length > 1
+                          ? link.comments.slice(0, 14)
                           : link.comments}</span>
                     </div>
                     <div className="tabledata">
