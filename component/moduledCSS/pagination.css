@@ -1,0 +1,65 @@
+.pagination{
+    position: fixed;
+    bottom: 2%;
+    left:50%;
+}
+
+.pagination-btn {
+    background-color: white;
+    width: 2vw;
+    font-size: 1.2vw;
+    height: 2.5vw;
+    margin-left: 0.5vw;
+    cursor: pointer;
+    border: 0.1vw solid rgb(192, 186, 186);
+}
+
+.pagination-dots{
+    background-color: white;
+
+    font-size: 1.3vw;
+    margin-left: 0.5vw;
+    cursor: pointer;
+    padding: 0.41vw 0.4vw;
+    border: 0.1vw solid rgb(192, 186, 186);
+}
+
+
+.active{
+    border: 0.1vw solid #4200FF;
+}
+
+@media (max-width: 1024px) {
+
+    .pagination{
+        position: fixed;
+        bottom: 0.2vw;
+        left:31%;
+    }
+    
+    .pagination-btn {
+        background-color: white;
+        width: 6vw;
+        font-size: 3.2vw;
+        height: 6vw;
+        margin-left: 1vw;
+        cursor: pointer;
+        border: 0.1vw solid rgb(192, 186, 186);
+    }
+    
+    .pagination-dots{
+        background-color: white;
+    
+        font-size: 3.3vw;
+        margin-left: 0.5vw;
+        cursor: pointer;
+        padding: 1vw 1.5vw;
+        border: 0.1vw solid rgb(192, 186, 186);
+    }
+    
+    
+    .active{
+        border: 0.1vw solid #4200FF;
+    }
+
+}
