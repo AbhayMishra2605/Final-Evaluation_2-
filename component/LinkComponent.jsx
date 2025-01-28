@@ -113,19 +113,30 @@ function LinkComponent({search}) {
   }, [limit, offset, search, debouncedFetchLinks]);
 
   const handleSort = (column, ascending) => {
-    const sortedLinks = [...links].sort((a, b) => {
-      if (column === "status") {
-        const aStatus = a.linkExpiration ? "Inactive" : "Active";
-        const bStatus = b.linkExpiration ? "Inactive" : "Active";
-        return ascending ? aStatus.localeCompare(bStatus) : bStatus.localeCompare(aStatus);
-      } else {
-        return ascending
+    if (column === "status") {
+      const sortedLinks = [...links].sort((a, b) => {
+        const aStatus = a.linkExpiration && new Date(a.linkExpirationDate) <= Date.now() ? "Inactive" : "Active";
+        const bStatus = b.linkExpiration && new Date(b.linkExpirationDate) <= Date.now() ? "Inactive" : "Active";
+  
+        if (ascending) {
+          return aStatus === bStatus ? 0 : aStatus === "Active" ? -1 : 1;
+        } else {
+          return aStatus === bStatus ? 0 : aStatus === "Active" ? 1 : -1;
+        }
+      });
+      setLinks(sortedLinks);
+    } else {
+      const sortedLinks = [...links].sort((a, b) =>
+        ascending
           ? a[column].localeCompare(b[column])
-          : b[column].localeCompare(a[column]);
-      }
-    });
-    setLinks(sortedLinks);
+          : b[column].localeCompare(a[column])
+      );
+      setLinks(sortedLinks);
+    }
   };
+  
+  
+  
 
   const handlePagination = (newOffset) => {
     if (newOffset >= 1 && newOffset <= totalPages) {
