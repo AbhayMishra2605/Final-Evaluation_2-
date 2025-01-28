@@ -18,6 +18,7 @@ const Pagination = ({ offset, totalPages, handlePagination }) => {
   };
 
   return (
+    <div className="paginationcotainer">
     <div className="pagination">
       <button
         onClick={() => handlePagination(offset - 1)}
@@ -50,6 +51,7 @@ const Pagination = ({ offset, totalPages, handlePagination }) => {
       >
         &gt;
       </button>
+    </div>
     </div>
   );
 };

@@ -1,7 +1,12 @@
 .pagination{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0vw;
+  width: 85vw;
+}
+.paginationcotainer{
     position: fixed;
-    bottom: 2%;
-    left:50%;
+    top:92vh;
 }
 
 .pagination-btn {
@@ -30,11 +35,16 @@
 }
 
 @media (max-width: 1024px) {
+    .paginationcotainer{
+        position: fixed;
+        top:96%;
+    }
 
     .pagination{
-        position: fixed;
-        bottom: 0.2vw;
-        left:40%;
+        display: flex;
+  justify-content: center;
+  margin-bottom: 0vw;
+  width: 100vw;
     }
     
     .pagination-btn {
