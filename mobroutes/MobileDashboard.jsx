@@ -24,7 +24,7 @@ function MobDashboardPage() {
   const [activeComponent, setActiveComponent] = useState("Dashboard");
   const [showPopup, setShowPopup] = useState(false);
   const fullName = localStorage.getItem("name");
-  const name = fullName ? fullName.split(" ")[0] : null;
+  const name = fullName ? (fullName.split(" ")[0].length > 9 ? fullName.split(" ")[0].slice(0, 5) + "..." : fullName.split(" ")[0]) : null;
   const [search, setSearch] = useState('');
 
 

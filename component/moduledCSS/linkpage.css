@@ -249,10 +249,19 @@
     }
     
     .popup img{
-        width: 2vw;
-        height: 2vw;
+        width: 4vw;
+        height: 4vw;
         margin-right: 1.5vw;
     }
     
 }
 
+
+@media (min-width: 600px) and (max-width: 1024px) {
+    .tabledata{
+        
+                height: 5.5vh;
+       
+    
+    }
+}

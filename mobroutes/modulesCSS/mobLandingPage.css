@@ -142,16 +142,18 @@ cursor: pointer;
 }
 
 
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (min-width: 600px) and (max-width: 1024px) {
     .MobLoginLoginBtn{
         padding: 2vh 1.3vw;
         
     }
     .MobloginsubmitBtn{
-        padding: 4vh 0vw;
+        padding: 3vh 0vw;
     }
     .Mobloginform input{
-        padding: 2vh 1.3vw;
+        padding: 0.8vw 1.3vw;
+        font-size: 4vw;
+
     }
 }
 

@@ -120,7 +120,7 @@ function Analytics() {
           <Pagination offset={offset} totalPages={totalPages} handlePagination={handlePagination} />
         </>
       ) : (
-        <p>No Data Available</p>
+        <p></p>
       )}
     </div>
   );
