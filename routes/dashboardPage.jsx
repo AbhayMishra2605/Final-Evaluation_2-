@@ -107,7 +107,6 @@ function DashboardPage() {
     } 
   }, [search]);
 
-  console.log(search)
 
   return (
     <div className="dashboardContainer">
