@@ -24,6 +24,7 @@ function DashboardPage() {
   const [activeComponent, setActiveComponent] = useState('Dashboard');
   const [showPopup, setShowPopup] = useState(false); 
   const name = localStorage.getItem("name");
+  const fullName = name ? name.split(" ")[0] : null;
   const navigate = useNavigate();
   const popupRef = useRef(null); 
   const [search, setSearch] = useState('');
@@ -152,7 +153,7 @@ function DashboardPage() {
         <div className="navbar">
           <div className="navbar-left">
             <span className="greeting">
-              🌞 {getGreeting()}, {name}
+              🌞 {getGreeting()}, {fullName}
             </span>
             <span className="date">{new Date().toDateString()}</span>
           </div>
