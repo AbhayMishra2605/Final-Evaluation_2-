@@ -36,15 +36,28 @@ function DashboardPage() {
     }
   }, [navigate]);
 
-  const getUser = async () => {
+   const getUser = async () => {
     const response = await getUserName();
     const data = await response.json();
-    localStorage.setItem('name', data.name);
+   
+    if(response.status===200){
+      localStorage.setItem('name', data.name);
+    }
+    if(response.status===500){
+      navigate('/login');
+
+      localStorage.removeItem('token');
+    }
+    if(response.status===404){
+      localStorage.removeItem('token');
+      navigate('/login');
+    }
+   
   };
 
   useEffect(() => {
     getUser();
-  }, []);
+  });
 
   const renderComponent = () => {
     switch (activeComponent) {
