@@ -39,7 +39,6 @@ function DashboardPage() {
    const getUser = async () => {
     const response = await getUserName();
     const data = await response.json();
-   console.log(response.status);
     if(response.status===200){
       localStorage.setItem('name', data.name);
     }
