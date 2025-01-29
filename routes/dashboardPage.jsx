@@ -49,8 +49,9 @@ function DashboardPage() {
       localStorage.removeItem('token');
     }
     if(response.status===404){
+            navigate('/login');
+
       localStorage.removeItem('token');
-      navigate('/login');
     }
    
   };
