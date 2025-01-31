@@ -45,16 +45,10 @@ function MobDashboardPage() {
     if(response.status===200){
       localStorage.setItem('name', data.name);
     }
-    if(response.status===500){
-      navigate('/login');
+     else{ navigate('/login');
 
       localStorage.removeItem('token');
-    }
-    if(response.status===404){
-            navigate('/login');
-
-      localStorage.removeItem('token');
-    }
+         }
    
   };
 
