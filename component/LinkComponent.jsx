@@ -159,6 +159,9 @@ function LinkComponent({search}) {
     const response = await deleteLink(deleteId);
     if (response.ok) {
       getLinks();
+    }else{
+      navigate("/login");
+      localStorage.removeItem("token");
     }
 
     setShowPopup2(false);
