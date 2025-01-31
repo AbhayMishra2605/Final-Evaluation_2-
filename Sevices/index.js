@@ -1,5 +1,15 @@
 const URL ="https://mini-link-management-platform-backend.onrender.com/api";
 
+export const varifyUser = ()=>{
+    return fetch(`${URL}/user/varify-user`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `${localStorage.getItem('token')}`,
+            }
+            })
+}
+
 export const register = (data) => {
     return fetch(`${URL}/user/register`, {
         method: 'POST',
