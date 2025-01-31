@@ -29,8 +29,8 @@ function Setting() {
           setPopupMessage('');
           setFormData({name:"",email:"",mobile:""});
           }, 2000);
-          localStorage.setItem('token',data.token);
-          localStorage.setItem('name',data.name);
+          
+          localStorage.setItem('name',formData.name);
           if(formData.email.length>0){
             localStorage.removeItem('token');
             localStorage.removeItem('name');
