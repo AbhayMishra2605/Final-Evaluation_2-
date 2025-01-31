@@ -27,7 +27,7 @@ function Setting() {
         setPopupMessage('Changes Saved Successfully');
         setTimeout(() => {
           setPopupMessage('');
-          setFormData({name:"",email:"",mobile:""});
+         
           }, 2000);
           
           localStorage.setItem('name',formData.name);
@@ -37,7 +37,7 @@ function Setting() {
             navigate('/login');
             }
             window.location.reload();
-
+            setFormData({name:"",email:"",mobile:""});
           }
 
 
