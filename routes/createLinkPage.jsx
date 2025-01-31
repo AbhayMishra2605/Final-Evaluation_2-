@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import { getLinkByID } from "../Sevices";
 import { editLinkData } from "../Sevices";
 import { useNavigate } from "react-router-dom";
+import { varifyUser } from "../Sevices";
 
 
 function CreateLinkPage() {
@@ -23,13 +24,29 @@ function CreateLinkPage() {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
+  const userVarify=async()=>{
+    try {
+      const response = await varifyUser();
+      if (response.status === 200) {
+           const data = response.json();
+        }else{
+          navigate("/login");
+          localStorage.removeItem("token");
+        }
+      
+      } catch (error) {
+        console.log(error);
+        }
+  }
 
   useEffect(()=>{
     const userexist=localStorage.getItem('token');
     if(!userexist){
       navigate('/login')
+      }else{
+        userVarify();
       }
-  })
+  },[])
 
   const handleToggle = () => {
     setFormData({ ...formData, linkExpiration: !formData.linkExpiration });
@@ -104,8 +121,12 @@ function CreateLinkPage() {
           setPopupMessage("Expiration date must be in the future");
           setTimeout(() => {
             setPopupMessage("");
-          }, 3000);
+          }, 3000);}
+        if(response.status=== 401){
+          navigate('/login');
+          localStorage.removeItem("token");
         }
+        
         setFormData({
           destinationUrl: "",
           comments: "",
@@ -136,6 +157,10 @@ function CreateLinkPage() {
           setTimeout(() => {
             setPopupMessage("");
           }, 3000);
+        }
+        if(response.status=== 401){
+          navigate('/login');
+          localStorage.removeItem("token");
         }
       } catch {
         setPopupMessage("Error updating link");
