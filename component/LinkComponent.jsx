@@ -10,7 +10,7 @@ import {
 } from "../data"; 
 
 import "./moduledCSS/linkpage.css";
-import { deleteLink, getallLinks,getDataByRemarks } from "../Sevices";
+import { deleteLink, getallLinks,getDataByRemarks,varifyUser } from "../Sevices";
 import { useNavigate } from "react-router-dom";
 import Pagination from "./handlePagination";
 function LinkComponent({search}) {
@@ -172,6 +172,16 @@ function LinkComponent({search}) {
     navigate(`/editlink/${encodedId}`);
   }
 
+const handleCopy=async(text)=>{
+  const res=await varifyUser();
+  if(res.ok){
+    copyToClipboard(text);
+  }else{
+    navigate("/login");
+    localStorage.removeItem("token");
+  }
+}
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (popupRef.current && !popupRef.current.contains(event.target)) {
@@ -265,7 +275,7 @@ function LinkComponent({search}) {
                         {link.shortUrl.length > 15
                           ? link.shortUrl.slice(0, 15)
                           : link.shortUrl}
-                        <span onClick={() => copyToClipboard(link.shortUrl)}>
+                        <span onClick={() =>handleCopy(link.shortUrl) }>
                           <img src={CopyIcon} />
                         </span>
                       </span>
