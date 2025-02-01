@@ -7,7 +7,7 @@
 }
 
 .linkTableHeader{
-    margin-left: 3vw;
+    margin-left: 4vw;
     border-radius: 2vw 2vw 0vw 0vw;
 
     display: grid; 
@@ -43,7 +43,7 @@
 
 
 .linkresponseTableBody{
-    margin-left: 3vw;
+    margin-left: 4vw;
 }
 
 .linkTableRow{
