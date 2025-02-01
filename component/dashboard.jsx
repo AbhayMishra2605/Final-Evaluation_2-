@@ -44,7 +44,6 @@ function Dashboard() {
     const res = await datewiseClickes();
     const data = await res.json();
     const len=data.cumulativeClickData.length-1;
-    console.log(data);
     if(len>=0){    setTotalClick(data.cumulativeClickData[len].totalClicks);
     }
     setDatewise(data.cumulativeClickData.sort((a, b) => new Date(b.date) - new Date(a.date)));
