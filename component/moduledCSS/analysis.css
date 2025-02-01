@@ -3,12 +3,13 @@
 }
 
 .linkTable{
-    padding-top: 1.3vw;
     border-radius:2vw;
 }
 
 .linkTableHeader{
     margin-left: 3vw;
+    border-radius: 2vw 2vw 0vw 0vw;
+
     display: grid; 
     width: 75vw;
 
