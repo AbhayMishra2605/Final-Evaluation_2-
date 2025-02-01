@@ -8,6 +8,8 @@
   }
   
   .responseTableHeader{
+    border-radius: 2vw 2vw 0vw 0vw;
+
     margin-left: 3vw;
     display: grid; 
     width: 75vw;
