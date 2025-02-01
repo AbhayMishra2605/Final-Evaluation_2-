@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { totalClicks, devicewiseClicks, datewiseClickes } from "../Sevices";
+import {  devicewiseClicks, datewiseClickes } from "../Sevices";
 import "./moduledCSS/dash.css";
 
 
@@ -25,12 +25,7 @@ function Dashboard() {
     return () => clearInterval(interval); 
   }, []);
 
-  const getTotalClick = async () => {
-    const res = await totalClicks();
-    const data = await res.json();
-    setTotalClick(data.overallTotalClicks);
-    setDataexist(data.overallTotalClicks > 0);
-  };
+
 
   const getDevicewise = async () => {
     const res = await devicewiseClicks();
@@ -48,13 +43,17 @@ function Dashboard() {
   const getDatewise = async () => {
     const res = await datewiseClickes();
     const data = await res.json();
+    const len=data.cumulativeClickData.length-1;
+    console.log(data);
+    if(len>=0){    setTotalClick(data.cumulativeClickData[len].totalClicks);
+    }
     setDatewise(data.cumulativeClickData.sort((a, b) => new Date(b.date) - new Date(a.date)));
+    setDataexist(len >=0);
   };
 
   useEffect(() => {
     const fetchData = async () => {
       await getDatewise();
-      await getTotalClick();
       await getDevicewise();
       setLoading(false); 
     };
